@@ -1,0 +1,22 @@
+# Raw data (reproducible via download scripts — never committed)
+data/raw/
+data/*.csv
+data/*.zip
+data/*.parquet
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Excel / BI temp files
+~$*.xlsx
+*.pbix
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
