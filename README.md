@@ -53,7 +53,23 @@ Congress grants federal agencies budget authority, but granting money is not the
 
 ## Status
 
-🚧 **In progress.** This commit contains the project scaffold, dataset documentation, and methodology only. Analysis code lands in the next commits, and **no findings are reported until the code has actually run on the real data.**
+✅ **Complete.** All 7 commits are in: scaffold → data pipeline → SQL analysis →
+statistics → forecast → Excel/Power BI guides → findings.
+
+## Key findings
+
+Full writeup: [`docs/findings.md`](docs/findings.md). Headlines, all computed
+from the validated data (888 agency-years, 111 agencies, FY2017–2024):
+
+- **The year-end rush is real:** median 33.3% of annual obligations land in the
+  final 3 periods vs 27.3% uniform baseline (p=3.4e-14, large effect).
+- **Execution drifted down:** government-wide obligation rate fell 84.3% → 78.5%
+  (2017→2024); unobligated balances rose $1.10T → $2.60T.
+- **Size doesn't predict execution** (rho=-0.03, p=0.37); obligations are
+  seasonal and forecastable (seasonal-naive wins the holdout).
+- **Caveats documented:** FCC >100% rates are offsetting collections, FEC FY2020
+  is a likely reporting artifact, and low single-year rates at DOD/HUD partly
+  reflect multi-year authority by design — unobligated ≠ wasted.
 
 ## Limitations (known upfront)
 
