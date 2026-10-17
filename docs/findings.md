@@ -38,6 +38,20 @@ deliberately.
    offsetting collections); FEC FY2020 ~106x rate (likely reporting artifact,
    excluded from headline findings); 67 null rows at tiny commissions; 5
    negative rows from net collections (FDIC).
+10. **File B bulk layer (FY2024).** Account × program activity × object class
+    breakdown: **58,282 rows × 49 columns**, 0 null obligation rows, 2,053
+    negative rows (deobligations/netting — kept, documented). Total FY2024
+    obligations **$9.519T**, reconciling with the agency series (78.5% ×
+    ~$12.1T budgetary resources ≈ $9.5T) (`notebooks/06_fileb_analysis.py`).
+11. **Three object classes dominate federal obligations.** Insurance claims and
+    indemnities 32.1%, grants/subsidies/contributions 25.1%, interest and
+    dividends 12.1% — the top 5 classes absorb **76.0%** of all FY2024
+    obligations (`notebooks/06_fileb_analysis.py`).
+12. **The single largest program activities are entitlements and debt
+    service.** Federal Old-Age and Survivors Insurance Trust Fund (Direct)
+    13.8%, interest on Treasury debt securities 11.9%, Medicaid vendor
+    payments 6.9%, Medicare SMI/HI benefit payments ~9.5% combined
+    (`notebooks/06_fileb_analysis.py`).
 
 ## Interpretation (not proven by this data)
 
@@ -48,6 +62,13 @@ deliberately.
   separating one-year from multi-year authority misleads.
 - Unobligated balances are not waste by default: this dataset cannot split
   balances that **lapse** from balances that **carry forward**.
+- File B (findings 10–12) shows the federal budget is overwhelmingly
+  transfers, insurance, and debt service — 76% of obligations sit in 5 object
+  classes. Discretionary procurement ("Equipment", "Supplies", "Other
+  services") is a single-digit share. Debates about "government spending"
+  that ignore this composition mislead. File B records obligation *activity*,
+  not budget authority — it cannot by itself split expiring from no-year
+  balances.
 
 ## Recommendations
 
@@ -56,9 +77,9 @@ deliberately.
 - **For oversight:** the year-end obligation spike (finding 3) is the cheapest
   place to look for low-quality rushed spending — it is large, significant,
   and persistent.
-- **Next iteration of this repo:** pull File B account-level bulk data to split
-  expiring vs no-year balances (the 100k+ row layer), and extend the forecast
-  with policy-event indicators.
+- **Next iteration of this repo:** File B (the 100k+ row layer) is now pulled
+  and analyzed (findings 10–12). Next: split expiring vs no-year balances at
+  the account level, and extend the forecast with policy-event indicators.
 
 ## Limitations
 

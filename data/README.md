@@ -20,7 +20,16 @@
 1. **Agency series (API):**
    - `GET /api/v2/references/toptier_agencies/` — agency list with budget authority, obligations, outlays
    - `GET /api/v2/agency/{toptier_code}/budgetary_resources/?fiscal_year={FY}` — budgetary resources, obligations, outlays, and quarterly `agency_obligation_by_period`
-2. **Account series (bulk):** `POST /api/v2/download/accounts/` with fiscal-year filters → asynchronous CSV download → validated and loaded with DuckDB.
+2. **Account series (bulk):** `POST /api/v2/download/accounts/` with
+   `account_level="federal_account"`, `fiscal_year=2024`, `period=12`,
+   `submission_types=["object_class_program_activity"]` → asynchronous CSV
+   download (`notebooks/05_fileb_download.py` polls `/api/v2/download/status`)
+   → validated and loaded with DuckDB (`notebooks/06_fileb_analysis.py`).
+   Fulfilled 2026-10-17: **58,282 rows × 49 columns** (3.07 MB zip,
+   34.4 MB CSV), file
+   `FY2024P01-P12_All_FA_AccountBreakdownByPA-OC_2026-10-17_H07M42S35143377.zip`.
+   0 null obligation rows; 2,053 negative rows (deobligations/netting — kept,
+   documented).
 
 Raw downloads are **not committed** (see `.gitignore`); the download scripts reproduce them exactly.
 
